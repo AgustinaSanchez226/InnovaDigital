@@ -228,18 +228,36 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Manejar envío de formularios
-        document.getElementById('login-form').addEventListener('submit', (e) => {
+        // Modificar el manejo del formulario de login
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = document.getElementById('login-email').value;
             const password = document.getElementById('login-password').value;
-            // Aquí iría la lógica de autenticación
-            console.log('Login:', { email, password });
-            alert('Inicio de sesión exitoso');
-            authModal.classList.remove('active');
+
+            try {
+                const response = await fetch('http://localhost:3000/api/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    alert('Inicio de sesión exitoso');
+                    authModal.classList.remove('active');
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al iniciar sesión');
+            }
         });
 
-        document.getElementById('register-form').addEventListener('submit', (e) => {
+        // Modificar el manejo del formulario de registro
+        document.getElementById('register-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const name = document.getElementById('register-name').value;
             const email = document.getElementById('register-email').value;
@@ -251,10 +269,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Aquí iría la lógica de registro
-            console.log('Register:', { name, email, password });
-            alert('Registro exitoso');
-            authModal.classList.remove('active');
+            try {
+                const response = await fetch('http://localhost:3000/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, password })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    alert('Registro exitoso');
+                    authModal.classList.remove('active');
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al registrar');
+            }
         });
     }
 
@@ -284,38 +318,49 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.auth-tabs').style.display = 'flex';
         });
 
-        // Manejar envío del formulario de recuperación
-        recoverForm.addEventListener('submit', (e) => {
+        // Modificar el manejo del formulario de recuperación
+        recoverForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const email = document.getElementById('recover-email').value;
-            
-            // Aquí iría la lógica para enviar el email de recuperación
-            console.log('Recuperación solicitada para:', email);
-            
-            // Mostrar mensaje de éxito
-            const message = document.createElement('div');
-            message.className = 'recover-message active';
-            message.textContent = 'Se ha enviado un enlace de recuperación a tu correo electrónico.';
-            
-            // Reemplazar el formulario con el mensaje
-            recoverForm.innerHTML = '';
-            recoverForm.appendChild(message);
-            
-            // Volver al login después de 3 segundos
-            setTimeout(() => {
-                recoverForm.classList.remove('active');
-                document.getElementById('login-form').classList.add('active');
-                document.querySelector('.auth-tabs').style.display = 'flex';
-                // Restaurar el formulario original
-                recoverForm.innerHTML = `
-                    <div class="form__group">
-                        <label for="recover-email">Email</label>
-                        <input type="email" id="recover-email" required>
-                    </div>
-                    <button type="submit" class="btn btn--primary">Enviar Link de Recuperación</button>
-                    <a href="#" class="back-to-login">Volver al inicio de sesión</a>
-                `;
-            }, 3000);
+
+            try {
+                const response = await fetch('http://localhost:3000/api/auth/recover', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email })
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    const message = document.createElement('div');
+                    message.className = 'recover-message active';
+                    message.textContent = data.message;
+                    
+                    recoverForm.innerHTML = '';
+                    recoverForm.appendChild(message);
+                    
+                    setTimeout(() => {
+                        recoverForm.classList.remove('active');
+                        document.getElementById('login-form').classList.add('active');
+                        document.querySelector('.auth-tabs').style.display = 'flex';
+                        recoverForm.innerHTML = `
+                            <div class="form__group">
+                                <label for="recover-email">Email</label>
+                                <input type="email" id="recover-email" required>
+                            </div>
+                            <button type="submit" class="btn btn--primary">Enviar Link de Recuperación</button>
+                            <a href="#" class="back-to-login">Volver al inicio de sesión</a>
+                        `;
+                    }, 3000);
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al procesar la solicitud');
+            }
         });
     }
 }); 

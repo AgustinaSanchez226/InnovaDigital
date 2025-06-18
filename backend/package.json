@@ -1,7 +1,7 @@
 {
-  "name": "techessentials-backend",
+  "name": "InnovaDigital-backend",
   "version": "1.0.0",
-  "description": "Backend para la tienda TechEssentials",
+  "description": "Backend para la tienda InnovaDigital",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
