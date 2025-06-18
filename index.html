@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovaDigital - Tu Tienda de Tecnología </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header__container">
+            <a href="#" class="header__logo">
+                <h1>InnovaDigital</h1>
+            </a
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="header__nav" id="nav-menu">
+                <ul class="nav__list">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="header__actions">
+                <button class="btn btn--icon" id="login-btn">
+                    <i class="fas fa-user"></i>
+                </button>
+                <button class="btn btn--icon" id="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero__content">
+            <h1>Bienvenido a InnovaDigital</h1>
+            <p>Tu destino para productos tecnológicos de calidad</p>
+            <a href="#productos" class="btn btn--primary">Ver Productos</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="about">
+        <div class="container">
+            <h2>Nuestra Misión</h2>
+            <div class="about__content">
+                <div class="about__text">
+                    <p>En InnovaDigital nos apasiona la tecnología y queremos compartir esa pasión contigo. Ofrecemos una cuidadosa selección de productos tecnológicos de alta calidad para mejorar tu experiencia digital.</p>
+                    <p>Nuestro compromiso es brindarte productos innovadores que combinen funcionalidad y estilo.</p>
+                </div>
+                <div class="about__image">
+                    <img src="https://images.unsplash.com/photo-1550009158-9ebf69173e03" alt="Nuestro equipo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="productos" class="products">
+        <div class="container">
+            <h2>Nuestros Productos</h2>
+            <div class="products__filters">
+                <button class="filter-btn active" data-category="all">Todos</button>
+                <button class="filter-btn" data-category="perifericos">Periféricos</button>
+                <button class="filter-btn" data-category="monitores">Monitores</button>
+                <button class="filter-btn" data-category="accesorios">Accesorios</button>
+            </div>
+            <div id="products-grid" class="products__grid">
+                <!-- Periféricos -->
+                <div class="product-card" data-category="perifericos">
+                    <img src="https://images.unsplash.com/photo-1527814050087-3793815479db" alt="Teclado mecánico">
+                    <h3>Teclado Mecánico</h3>
+                    <p class="price">$89.99</p>
+                    <button class="btn btn--primary add-to-cart" data-id="1" data-name="Teclado Mecánico" data-price="89.99">
+                        Agregar al carrito
+                    </button>
+                </div>
+
+                <div class="product-card" data-category="perifericos">
+                    <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7" alt="Mouse Gaming">
+                    <h3>Mouse Gaming RGB</h3>
+                    <p class="price">$49.99</p>
+                    <button class="btn btn--primary add-to-cart" data-id="2" data-name="Mouse Gaming RGB" data-price="49.99">
+                        Agregar al carrito
+                    </button>
+                </div>
+
+                <!-- Monitores -->
+                <div class="product-card" data-category="monitores">
+                    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf" alt="Monitor Gaming">
+                    <h3>Monitor Gaming 27"</h3>
+                    <p class="price">$299.99</p>
+                    <button class="btn btn--primary add-to-cart" data-id="3" data-name="Monitor Gaming 27" data-price="299.99">
+                        Agregar al carrito
+                    </button>
+                </div>
+
+                <div class="product-card" data-category="monitores">
+                    <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6" alt="Monitor 4K">
+                    <h3>Monitor 4K 32"</h3>
+                    <p class="price">$399.99</p>
+                    <button class="btn btn--primary add-to-cart" data-id="4" data-name="Monitor 4K 32" data-price="399.99">
+                        Agregar al carrito
+                    </button>
+                </div>
+
+                <!-- Accesorios -->
+                <div class="product-card" data-category="accesorios">
+                    <img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb" alt="Audífonos">
+                    <h3>Audífonos Gaming</h3>
+                    <p class="price">$79.99</p>
+                    <button class="btn btn--primary add-to-cart" data-id="5" data-name="Audífonos Gaming" data-price="79.99">
+                        Agregar al carrito
+                    </button>
+                </div>
+
+                <div class="product-card" data-category="accesorios">
+                    <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07" alt="Mousepad">
+                    <h3>Mousepad RGB</h3>
+                    <p class="price">$29.99</p>
+                    <button class="btn btn--primary add-to-cart" data-id="6" data-name="Mousepad RGB" data-price="29.99">
+                        Agregar al carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2>Contacto</h2>
+            <form id="contact-form" class="contact__form">
+                <div class="form__group">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" name="name" required>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form__group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form__group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <div class="error-message"></div>
+                </div>
+                <button type="submit" class="btn btn--primary">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3>InnovaDigital</h3>
+                    <p>Tu tienda de confianza para productos tecnológicos</p>
+                </div>
+                <div class="footer__section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 InnovaDigital. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal del Carrito -->
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-modal__content">
+            <button class="cart-modal__close" id="close-cart">
+                <i class="fas fa-times"></i>
+            </button>
+            <h2>Carrito de Compras</h2>
+            <div id="cart-items" class="cart-items">
+                <!-- Los items del carrito se cargarán dinámicamente -->
+            </div>
+            <div class="cart-modal__footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total">$0.00</span>
+                </div>
+                <button id="checkout-btn" class="btn btn--primary">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Login/Registro -->
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-modal__content">
+            <button class="auth-modal__close" id="close-auth">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <!-- Tabs de Login/Registro -->
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Iniciar Sesión</button>
+                <button class="auth-tab" data-tab="register">Registrarse</button>
+            </div>
+
+            <!-- Formulario de Login -->
+            <form id="login-form" class="auth-form active">
+                <div class="form__group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form__group">
+                    <label for="login-password">Contraseña</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit" class="btn btn--primary">Iniciar Sesión</button>
+                <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+            </form>
+
+            <!-- Formulario de Registro -->
+            <form id="register-form" class="auth-form">
+                <div class="form__group">
+                    <label for="register-name">Nombre</label>
+                    <input type="text" id="register-name" required>
+                </div>
+                <div class="form__group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                </div>
+                <div class="form__group">
+                    <label for="register-password">Contraseña</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <div class="form__group">
+                    <label for="register-confirm-password">Confirmar Contraseña</label>
+                    <input type="password" id="register-confirm-password" required>
+                </div>
+                <button type="submit" class="btn btn--primary">Registrarse</button>
+            </form>
+
+            <!-- Formulario de Recuperación de Contraseña -->
+            <form id="recover-form" class="auth-form">
+                <div class="form__group">
+                    <label for="recover-email">Email</label>
+                    <input type="email" id="recover-email" required>
+                </div>
+                <button type="submit" class="btn btn--primary">Enviar Link de Recuperación</button>
+                <a href="#" class="back-to-login">Volver al inicio de sesión</a>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html> 
